@@ -1,3 +1,5 @@
+# Some documentation on this project
+
 from megapi import *
 import pygame
 import RPi.GPIO as GPIO
