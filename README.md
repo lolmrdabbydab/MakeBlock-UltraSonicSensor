@@ -1,5 +1,8 @@
 # MakeBlock-UltraSonicSensor
 
+[![GitHub release](https://img.shields.io/github/release/ssi5/MakeBlock-UltraSonicSensor.svg)](https://GitHub.com/ssi5/MakeBlock-UltraSonicSensor/releases/)
+[![MIT license](https://img.shields.io/github/license/ssi5/MakeBlock-UltraSonicSensor)](https://ssi5.mit-license.org/)
+
 This _passion project_ by the students My Nguyen, Thai Le, Phu Le and Triet Do. They applied for the SAMK robot competition 2022. 
 
 ## SAMK Competition
