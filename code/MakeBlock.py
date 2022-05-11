@@ -1,31 +1,3 @@
-# MakeBlock-UltraSonicSensor
-
-[![GitHub release](https://img.shields.io/github/release/ssi5/MakeBlock-UltraSonicSensor.svg)](https://GitHub.com/ssi5/MakeBlock-UltraSonicSensor/releases/)
-[![MIT license](https://img.shields.io/github/license/ssi5/MakeBlock-UltraSonicSensor)](https://ssi5.mit-license.org/)
-
-This _passion project_ by the students My Nguyen, Thai Le, Phu Le and Triet Do. They applied for the SAMK robot competition 2022. 
-
-## SAMK Competition
-
-More about the competition of the SATAKUNTA UNIVERSITY OF APPLIED SCIENCES (SAMK) and this competition: 
-
-https://www.samk.fi/en/education/master-robot-builders/
-
-## Video of the final product
-
-A video about this project can be [found on YouTube](https://youtu.be/Inp2bbtwn5M)
-
-## Build
-
-And that is how it looks like:
-
-![Picture from Friday 2022-05-06](docs/2022-05-06_robot.png)
-
-## Code
-
-The program was running on the Raspberry Pi in python, addressing the MegaPi via serial interface. For transportation the `megapi` library was imported, for audio output the `pygame` library.
-
-``` py
 from megapi import *
 import time
 import pygame
@@ -118,6 +90,3 @@ if __name__ == '__main__':
 		
 		else:
 			pass
-```
-
-## Remarks
