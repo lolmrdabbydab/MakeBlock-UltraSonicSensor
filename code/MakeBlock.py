@@ -34,12 +34,14 @@ def SoundPlay(SoundFile):
 	while pygame.mixer.music.get_busy() == False:
 		continue
 
-def Blink(pin,n):
-	for i in range (n):
-		GPIO.output(pin,GPIO.HIGH)
-		sleep(0.2)
-		GPIO.output(pin,GPIO.LOW)
-		sleep(0.2)
+def LightOn(pin):
+	GPIO.output(pin, GPIO.HIGH) # Green = 40 | Blue = 36 | Red = 38
+
+def LightOff():
+	GPIO.output(36, GPIO.LOW)
+	GPIO.output(38, GPIO.LOW)
+	GPIO.output(40, GPIO.LOW)
+
 # -=GPIO=-
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
@@ -62,7 +64,7 @@ if __name__ == '__main__':
 	bot = MegaPi()
 	bot.start()
 	output = 0
-	Blink(40,2)
+	LightOn(40)
 	SoundPlay(2)
 
 	while True:
@@ -77,8 +79,9 @@ if __name__ == '__main__':
 
 		# -=GO OUT=-
 		if output == 1:
+			LightOff()
+			LightOn(36)
 			
-			Blink(36,3)
 			# Sound
 			if time.time() - announce > 10:
 				announce = time.time()
@@ -103,11 +106,11 @@ if __name__ == '__main__':
 		
 		# -=BE QUIET=-
 		elif output == 2:
-			Blink(38,3)
+			LightOff()
+			LightOn(38)
 			Forward(4, 0)
 			Backward(1, 0)
 			if GPIO.input(sound_sensorPin) == GPIO.HIGH:
-				print("MAMA MIA")
 				SoundPlay(1)
 		
 		else:
