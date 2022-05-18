@@ -25,7 +25,7 @@ We have to wait for the outcome.
 
 And that is how it looks like:
 
-![Picture from Wednesday 18.05.2022](docs/IMG_1022.HEIC)
+<img width="923" alt="Screen Shot 2022-05-18 at 16 40 53" src="https://user-images.githubusercontent.com/105782191/169009604-0797cedd-2c0d-4cae-9d89-3adc05e26573.png">
 
 ## Code
 
