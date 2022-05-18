@@ -4,6 +4,7 @@ import pygame
 import RPi.GPIO as GPIO
 
 announce = time.time()
+turning = time.time()
 distance = 123
 
 # -=Function=-
@@ -13,6 +14,9 @@ def Forward(port, speed):
 
 def Backward(port, speed):
 	bot.encoderMotorRun(port, speed)
+
+def Left(port, speed, dist):
+	bot.encoderMotorMove(port, speed, dist, Forward)
 
 # -=UltrasonicSensor=-
 def UltraSonic(port):
@@ -30,6 +34,12 @@ def SoundPlay(SoundFile):
 	while pygame.mixer.music.get_busy() == False:
 		continue
 
+def Blink(pin,n):
+	for i in range (n):
+		GPIO.output(pin,GPIO.HIGH)
+		sleep(0.2)
+		GPIO.output(pin,GPIO.LOW)
+		sleep(0.2)
 # -=GPIO=-
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
@@ -39,6 +49,9 @@ speaker_buttonPin1 = 32
 speaker_buttonPin2 = 22
 GPIO.setup(speaker_buttonPin1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(speaker_buttonPin2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(40,GPIO.OUT)
+GPIO.setup(38,GPIO.OUT)
+GPIO.setup(36,GPIO.OUT)
 
     # Sound Sensor
 sound_sensorPin = 18
@@ -49,6 +62,7 @@ if __name__ == '__main__':
 	bot = MegaPi()
 	bot.start()
 	output = 0
+	Blink(40,2)
 	SoundPlay(2)
 
 	while True:
@@ -64,8 +78,9 @@ if __name__ == '__main__':
 		# -=GO OUT=-
 		if output == 1:
 			
+			Blink(36,3)
 			# Sound
-			if time.time() - announce > 30:
+			if time.time() - announce > 10:
 				announce = time.time()
 				SoundPlay(0)
 				
@@ -74,14 +89,21 @@ if __name__ == '__main__':
 			
 			# Movement
 			if distance < 20:
-				Forward(4,50)
+				turning = time.time() + 3.5
+			
+			if (turning - time.time()) > 0:
+				# turn
+				Left(4, 50, 150)
 				Backward(1, 0)
+			
 			else:
-				Forward(4, 50) # Left Wheel
-				Backward(1, 50) # Right Wheel
-
+				# drive straight
+				Forward(4, 50)
+				Backward(1, 50)
+		
 		# -=BE QUIET=-
 		elif output == 2:
+			Blink(38,3)
 			Forward(4, 0)
 			Backward(1, 0)
 			if GPIO.input(sound_sensorPin) == GPIO.HIGH:
