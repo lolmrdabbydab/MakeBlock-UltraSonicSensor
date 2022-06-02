@@ -13,23 +13,19 @@ https://www.samk.fi/en/education/master-robot-builders/
 
 ### Stage 1: May 10th, 2022
 
-The submission from May 9th was successful on May 10th, when 17 out of 78 teams were selected for the final round!
+We submitted the first version of our robot on May 9th and was one of the 17 teams (out of 78) to be selected to the finals.
+A video about this project can be [found on YouTube](https://youtu.be/Inp2bbtwn5M)
 
 ### Final round: May 20th, 2022
 
 We have to wait for the outcome.
 
-## Video of the final product
-
-A video about this project can be [found on YouTube](https://youtu.be/Inp2bbtwn5M)
-
-The presentation ... *will be linked here soon*.
 
 ## Build
 
 And that is how it looks like:
 
-![Picture from Friday 2022-05-06](docs/2022-05-06_robot.png)
+<img width="923" alt="Screen Shot 2022-05-18 at 16 40 53" src="https://user-images.githubusercontent.com/105782191/169009604-0797cedd-2c0d-4cae-9d89-3adc05e26573.png">
 
 ## Code
 
